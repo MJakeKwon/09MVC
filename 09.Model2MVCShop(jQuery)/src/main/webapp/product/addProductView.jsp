@@ -44,16 +44,17 @@
 	
 	$(function(){
 		
-		$("td.ctbtn01:contains('등록')").on("click", function(){
+		$("td.ct_btn01:contains('등록')").on("click", function(){
+			console.log("등록 됨")
 			fncAddProduct();
 		});
 		
-		$("td.ctbtn01:contains('취소')").on("click",function(){
+		$("td.ct_btn01:contains('취소')").on("click",function(){
 			history.go(-1);
 		});
 		
 		$("#calendar").on("click",function(){
-			show_calendar('document.detailForm.manuDate', $(#'manuDate').val());
+			show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value);
 		});
 	});
 
@@ -157,12 +158,12 @@ function resetData(){
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input type="text" name="manuDate" readonly="readonly" class="ct_input_g"  
+			<input type="text" id="manuDate" name="manuDate" readonly="readonly" class="ct_input_g"  
 						style="width: 100px; height: 19px"	maxLength="10" minLength="6"/>
 				&nbsp;
 				<!-- <img src="../images/ct_icon_date.gif" width="15" height="15" 
 										onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/> -->
-				<img id ="calendal" src="../images/ct_icon_date.gif" width="15" height="15" />
+				<img id ="calendar" src="../images/ct_icon_date.gif" width="15" height="15" />
 		</td>
 	</tr>
 	<tr>

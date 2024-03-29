@@ -46,37 +46,36 @@
 				</tr>
 			</table>
 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
-				<tr>
-					<td align="right">
-						<c:choose>
-							<c:when test="${not empty search.searchCondition}">
-								<select name="searchCondition" class="ct_input_g" style="width: 80px">
-									<option value="0" <c:if test="${search.searchCondition eq '0'}">selected</c:if>>상품번호</option>
-									<option value="1" <c:if test="${search.searchCondition eq '1'}">selected</c:if>>상품명</option>
-									<option value="2" <c:if test="${search.searchCondition eq '2'}">selected</c:if>>상품가격</option>
-								</select>
-							</c:when>
-							<c:otherwise>
-								<select name="searchCondition" class="ct_input_g" style="width: 80px">
-									<option value="0">상품번호</option>
-									<option value="1">상품명</option>
-									<option value="2">상품가격</option>
-								</select>
-							</c:otherwise>
-						</c:choose>
-						<input type="text" name="searchKeyword" value="${searchKeyword}" class="ct_input_g" style="width:200px; height:20px">
-					</td>
-					<td align="right" width="70">
-						<table border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td width="17" height="23"><img src="/images/ct_btnbg01.gif" width="17" height="23"></td>
-								<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;"><a href="javascript:fncGetList(1);">검색</a></td>
-								<td width="14" height="23"><img src="/images/ct_btnbg03.gif" width="14" height="23"></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+			<<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+			    <tr>
+			        <td align="right">
+			            <c:if test="${not empty search.searchCondition}">
+			                <select name="searchCondition" class="ct_input_g" style="width: 80px">
+			                    <option value="1" ${search.searchCondition eq '1' ? 'selected' : ''}>상품명</option>
+			                    <option value="2" ${search.searchCondition eq '2' ? 'selected' : ''}>상품가격</option>
+			                </select>
+			                <input type="text" name="searchKeyword" value="${search.searchKeyword}" class="ct_input_g" style="width: 200px; height: 19px">
+			            </c:if>
+			            <c:if test="${empty search.searchCondition}">
+			                <select name="searchCondition" class="ct_input_g" style="width: 80px">
+			                    <option value="1">상품명</option>
+			                    <option value="2">상품가격</option>
+			                </select>
+			                <input type="text" name="searchKeyword" class="ct_input_g" style="width: 200px; height: 19px">
+			            </c:if>
+			        </td>
+			        <td align="right" width="70">
+			            <table border="0" cellspacing="0" cellpadding="0">
+			                <tr>
+			                    <td width="17" height="23"><img src="/images/ct_btnbg01.gif" width="17" height="23"></td>
+			                    <td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
+			                        <a href="javascript:fncGetList('1');">검색</a>
+			                    </td>
+			                    <td width="14" height="23"><img src="/images/ct_btnbg03.gif" width="14" height="23"></td>
+			                </tr>
+			            </table>
+			        </td>
+			    </tr>
 			</table>
 
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"	style="margin-top: 10px;">
@@ -118,10 +117,10 @@
 				<td align="left">
 				<c:choose>
 				<c:when test="${menu eq 'manage' }">
-				<a href="/product/updateProductView?prodNo=${product.prodNo}&menu=${param.menu }">${product.prodName}</a>
+				<a href="/product/updateProduct?prodNo=${product.prodNo}&menu=${param.menu }">${product.prodName}</a>
 				</c:when>
 				<c:otherwise>
-				<a href="/product/getProduct?prodNo=${product.prodNo}&${param.menu }">${product.prodName}</a>
+				<a href="/product/getProduct?prodNo=${product.prodNo}&menu=${param.menu }">${product.prodName}</a>
 				</c:otherwise>
 				</c:choose>
 				<td></td>

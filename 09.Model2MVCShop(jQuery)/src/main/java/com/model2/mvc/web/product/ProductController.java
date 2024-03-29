@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
@@ -60,15 +61,23 @@ public class ProductController{
 	}
 	
 	@RequestMapping( value="getProduct", method=RequestMethod.GET )
-	public String getProduct( @RequestParam("prodNo") int prodNo , Model model ) throws Exception {
+	public ModelAndView getProduct( @RequestParam("prodNo") int prodNo , Model model, 
+														@RequestParam("menu")String menu) throws Exception {
 		
-		System.out.println("/getProduct");
+		System.out.println("/getProduct.do");
 		//Business Logic
+		ModelAndView modelAndView = new ModelAndView();
 		Product product = productService.getProduct(prodNo);
 		// Model °ú View ¿¬°á
 		model.addAttribute("product", product);
+		model.addAttribute("menu",menu);
 		
-		return "forward:/product/getProduct.jsp";
+		if(menu.equals("manage")) {
+			modelAndView.setViewName("forward:/product/updateProductView.jsp");
+		}else {
+			modelAndView.setViewName("forward:/product/getProduct.jsp");
+		}
+		return modelAndView;
 	}
 	
 	@RequestMapping( value="updateProduct", method=RequestMethod.GET )

@@ -6,14 +6,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
-	
-	$(function(){
-		
-		$("td.ctbtn01:contains('취소')").on("click",function(){
-			history.go(-1);
-		});
-		
-	});
 
 
 <title>상품정보 조회</title>
@@ -53,7 +45,7 @@
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="105">${user.prodNo}</td>
+					<td width="105">${product.prodNo}</td>
 				</tr>
 			</table>
 		</td>
@@ -68,7 +60,7 @@
 					align="absmiddle" />
 				</td>
 				<td bgcolor="D6D6D6" width="1"></td>
-				<td class="ct_write01">${user.prodName}</td>
+				<td class="ct_write01">${product.prodName}</td>
 			</tr>
 			
 			<tr>
@@ -77,7 +69,7 @@
 					align="absmiddle" />
 				</td>
 				<td bgcolor="D6D6D6" width="1"></td>
-				<td class="ct_write01">${user.prodFileName}</td>
+				<td class="ct_write01">${product.fileName}</td>
 			</tr>
 			
 			<tr>
@@ -90,7 +82,7 @@
 					align="absmiddle" />
 				</td>
 				<td bgcolor="D6D6D6" width="1"></td>
-				<td class="ct_write01">${user.prodDetail}</td>
+				<td class="ct_write01">${product.prodDetail}</td>
 			</tr>
 			
 			<tr>
@@ -100,7 +92,7 @@
 			<tr>
 				<td width="104" class="ct_write">제조일자</td>
 				<td bgcolor="D6D6D6" width="1"></td>
-				<td class="ct_write01">${user.ManuDate}</td>
+				<td class="ct_write01">${product.manuDate}</td>
 			</tr>
 			
 			<tr>
@@ -110,7 +102,7 @@
 			<tr>
 				<td width="104" class="ct_write">가격</td>
 				<td bgcolor="D6D6D6" width="1"></td>
-				<td class="ct_write01">${user.price}</td>
+				<td class="ct_write01">${product.price}</td>
 			</tr>
 			
 			<tr>
@@ -120,7 +112,7 @@
 			<tr>
 				<td width="104" class="ct_write">등록일자</td>
 				<td bgcolor="D6D6D6" width="1"></td>
-				<td class="ct_write01"> ${user.regDate}</td>
+				<td class="ct_write01"> ${product.regDate}</td>
 			</tr>
 			<tr>
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
