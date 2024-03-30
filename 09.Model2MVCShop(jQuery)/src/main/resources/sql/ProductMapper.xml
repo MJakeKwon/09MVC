@@ -81,7 +81,7 @@
 				 		prod_name = #{searchKeyword}
 						</if>
 						<if test="searchCondition == 2 and searchKeyword !='' ">
-						price = #{searchKeyword}
+								 				price = #{searchKeyword}
 						</if>
 					</where>
 				</if> ) countTable						
